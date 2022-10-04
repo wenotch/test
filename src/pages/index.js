@@ -1,8 +1,18 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import { Box, Image, Text, Link, HStack } from "@chakra-ui/react";
+import { Box, Image, Text, Link, HStack, keyframes } from "@chakra-ui/react";
 import Background from "../components/background";
 import Head from "next/head";
 import NextLink from "next/link";
+import { motion } from "framer-motion";
+
+const fastForward = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(1rem); }
+  75% { transform: translateX(-1rem); }
+  100% { transform: translateX(0); }
+`;
+
+const animation = `${fastForward} 2s linear infinite`;
 
 export default function Home({ Component, pageProps }) {
   return (
@@ -37,7 +47,7 @@ export default function Home({ Component, pageProps }) {
           </Text>
           <Text
             as="h1"
-            mt="24"
+            mt="70px"
             fontWeight="bold"
             fontSize="115px"
             lineHeight="132px"
@@ -46,13 +56,27 @@ export default function Home({ Component, pageProps }) {
             <br /> Pandora&apos;s Box.
           </Text>
           <NextLink href="/home" passHref>
-            <Link w="380px" display="inline-block">
-              <HStack w="100%">
+            <Link
+              w="380px"
+              mt="113px"
+              display="flex"
+              bg="#38346A"
+              rounded="50px"
+              overflow="hidden"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <HStack
+                w="100%"
+                alignItems="center"
+                justifyContent="space-around"
+              >
                 <Text fontSize="48px" fontWeight="normal">
                   let&apos;s go!!!
                 </Text>
-                <Box>
-                  <Image src="/arrow.svg" alt="arrow"></Image>
+                <Box as={motion.div} animation={animation}>
+                  <Image src="/arrow.svg" alt="arrow" />
                 </Box>
               </HStack>
             </Link>

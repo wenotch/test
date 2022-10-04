@@ -23,6 +23,17 @@ export default function Background({ children }) {
         bgRepeat: "no-repeat",
         bgPosition: "center",
       }}
+      _after={{
+        content: '""',
+        position: "absolute",
+        bottom: "-30px",
+        left: "45%",
+        width: "50%",
+        height: "100%",
+        bgImage: "url('/rocket.png')",
+        bgRepeat: "no-repeat",
+        bgPosition: "center",
+      }}
     >
       <Box w="100%" px="120px" pt="101px">
         {children}
