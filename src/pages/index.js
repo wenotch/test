@@ -62,6 +62,7 @@ export default function Home({ Component, pageProps }) {
               display="flex"
               bg="#38346A"
               rounded="50px"
+              border="2px solid white"
               overflow="hidden"
               _hover={{
                 textDecoration: "none",
